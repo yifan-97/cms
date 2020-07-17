@@ -356,6 +356,63 @@
     "deleted": false,
     "already_exist": false,
     "id": "e0d53d71-667e-4ce6-a353-b2ebaf176cca",
-    "modified": "2020-07-08T17:39:12.993Z"
+    "modified": "2020-07-08T17:39:12.993Z",
+    "name": "create_profile"
+  },
+  {
+    "command": "Welcome Script",
+    "botId": 1,
+    "description": "Welcome the user",
+    "triggers": [
+      {
+        "pattern": "welcome_user",
+        "type": "string",
+        "id": 198
+      }
+    ],
+    "variables": [
+      {
+        "name": "question_1",
+        "type": "string"
+      },
+      {
+        "name": "question_2",
+        "type": "string"
+      },
+      {
+        "name": "question_3",
+        "type": "string"
+      }
+    ],
+    "script": [
+      {
+        "topic": "default",
+        "script": [
+          {
+            "text": [
+              "Welcome to MDout. We are a medical data company.."
+            ]
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "on_timeout",
+        "script": [
+          {
+            "text": [
+              "Looks like you got distracted. We can continue later."
+            ]
+          },
+          {
+            "action": "timeout"
+          }
+        ]
+      }
+    ],
+    "id": "e16289b0-913f-4ed0-af7a-05a1f5961d1a",
+    "modified": "2020-07-17T00:24:41.960Z"
   }
 ]
