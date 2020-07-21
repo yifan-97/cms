@@ -424,6 +424,11 @@
     "description": "data transfer",
     "triggers": [
       {
+        "pattern": "(\\btransfer.\\b)(\\brecord.\\b)",
+        "type": "regexp",
+        "id": 288
+      },
+      {
         "pattern": "transfer.+record.",
         "type": "regexp",
         "id": 405
@@ -540,7 +545,7 @@
       }
     ],
     "id": "0fafa2bf-e0c0-4ede-afa7-1bb6d61b3ca2",
-    "modified": "2020-07-21T08:04:02.506Z",
+    "modified": "2020-07-21T08:16:17.733Z",
     "name": "Other FAQ_1",
     "tags": [
       "cat_0"
