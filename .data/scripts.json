@@ -358,5 +358,590 @@
     "id": "e0d53d71-667e-4ce6-a353-b2ebaf176cca",
     "modified": "2020-07-08T17:39:12.993Z",
     "name": "create_profile"
+  },
+  {
+    "command": "welcome",
+    "botId": 1,
+    "description": "welcome the user",
+    "triggers": [
+      {
+        "pattern": "welcome_user",
+        "type": "string",
+        "id": 480
+      }
+    ],
+    "variables": [
+      {
+        "name": "question_1",
+        "type": "string"
+      },
+      {
+        "name": "question_2",
+        "type": "string"
+      },
+      {
+        "name": "question_3",
+        "type": "string"
+      }
+    ],
+    "script": [
+      {
+        "topic": "default",
+        "script": [
+          {
+            "text": [
+              "Welcome to MDout. Our organization is ..."
+            ]
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "on_timeout",
+        "script": [
+          {
+            "text": [
+              "Looks like you got distracted. We can continue later."
+            ]
+          },
+          {
+            "action": "timeout"
+          }
+        ]
+      }
+    ],
+    "id": "b742ef68-90f3-41e7-b4d7-2f7e3fc8cc91",
+    "modified": "2020-07-21T07:53:39.307Z",
+    "name": "welcome",
+    "deleted": false,
+    "already_exist": false
+  },
+  {
+    "command": "Other FAQ_1",
+    "botId": 1,
+    "description": "data transfer",
+    "triggers": [
+      {
+        "pattern": "/record.+transfer./i",
+        "type": "regexp",
+        "id": 173
+      },
+      {
+        "pattern": "/transfer.+clinic./i",
+        "type": "regexp",
+        "id": 381
+      },
+      {
+        "pattern": "/transfer.+data./i",
+        "type": "regexp",
+        "id": 431
+      },
+      {
+        "pattern": "/transfer.+info./i",
+        "type": "regexp",
+        "id": 170
+      },
+      {
+        "pattern": "/info.+transfer./i",
+        "type": "string",
+        "id": 437
+      },
+      {
+        "pattern": "/transfer.+record./i",
+        "type": "string",
+        "id": 346
+      }
+    ],
+    "variables": [
+      {
+        "name": "re_phrased_question",
+        "type": "string",
+        "id": 102
+      },
+      {
+        "name": "data_transfer",
+        "type": "string",
+        "id": 13
+      },
+      {
+        "name": "question_1",
+        "type": "string"
+      },
+      {
+        "name": "question_2",
+        "type": "string"
+      },
+      {
+        "name": "question_3",
+        "type": "string"
+      }
+    ],
+    "script": [
+      {
+        "topic": "default",
+        "script": [
+          {
+            "text": [
+              "Great question! We are currently working on automating patient data transfer. This function will be released shortly. You will then be able to transfer records in between different clinics."
+            ],
+            "meta": [],
+            "collect": {
+              "key": "re_phrased_question",
+              "options": [
+                {
+                  "default": true,
+                  "pattern": "default",
+                  "action": "next"
+                },
+                {
+                  "pattern": "confusion",
+                  "type": "string",
+                  "action": "execute_script",
+                  "execute": {
+                    "script": "No_match",
+                    "thread": "default"
+                  }
+                }
+              ]
+            },
+            "quick_replies": [
+              {
+                "title": "This is not what I was asking",
+                "payload": "confusion",
+                "content_type": "text"
+              }
+            ]
+          },
+          {
+            "text": [
+              "Hope that clears up your question! Anything else I could answer for you?"
+            ],
+            "collect": null
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "on_timeout",
+        "script": [
+          {
+            "text": [
+              "Looks like you got distracted. We can continue later."
+            ]
+          },
+          {
+            "action": "timeout"
+          }
+        ]
+      }
+    ],
+    "id": "0fafa2bf-e0c0-4ede-afa7-1bb6d61b3ca2",
+    "modified": "2020-07-21T07:53:39.310Z",
+    "name": "Other FAQ_1",
+    "tags": [
+      "cat_0"
+    ],
+    "deleted": false,
+    "already_exist": false
+  },
+  {
+    "command": "Other_FAQ_2",
+    "botId": 1,
+    "description": "See the clinics working with MDout",
+    "triggers": [
+      {
+        "pattern": "/is.+my.+doctor./i",
+        "type": "string",
+        "id": 374
+      },
+      {
+        "pattern": "/is.+my.+provider./i",
+        "type": "string",
+        "id": 441
+      },
+      {
+        "pattern": "/which.+work.+with./i",
+        "type": "regexp",
+        "id": 443
+      },
+      {
+        "pattern": "/who.+work.+with./i",
+        "type": "regexp",
+        "id": 290
+      },
+      {
+        "pattern": "/who.+partner.+with./i",
+        "type": "regexp",
+        "id": 402
+      },
+      {
+        "pattern": "/what.+clinic./i",
+        "type": "regexp",
+        "id": 178
+      }
+    ],
+    "variables": [
+      {
+        "name": "question_1",
+        "type": "string"
+      },
+      {
+        "name": "question_2",
+        "type": "string"
+      },
+      {
+        "name": "question_3",
+        "type": "string"
+      }
+    ],
+    "script": [
+      {
+        "topic": "default",
+        "script": [
+          {
+            "text": [
+              "To check who MDout has partnered with, you could click on the link provided below:"
+            ],
+            "platforms": {
+              "web": {
+                "files": [
+                  {
+                    "url": "https://www.mdout.com/contact/"
+                  }
+                ]
+              }
+            },
+            "collect": {
+              "key": "question_1",
+              "options": [
+                {
+                  "default": true,
+                  "pattern": "default",
+                  "action": "next"
+                },
+                {
+                  "pattern": "confusion",
+                  "type": "string",
+                  "action": "execute_script",
+                  "execute": {
+                    "script": "No_match",
+                    "thread": "default"
+                  }
+                },
+                {
+                  "pattern": "sample",
+                  "type": "string",
+                  "action": "next"
+                }
+              ],
+              "multiple": false
+            },
+            "quick_replies": [
+              {
+                "title": "This is not what I asked",
+                "payload": "confusion",
+                "content_type": "text"
+              }
+            ]
+          },
+          {
+            "text": [
+              "I hope that was helpful. Anything else I could help you with today?"
+            ],
+            "collect": null
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "on_timeout",
+        "script": [
+          {
+            "text": [
+              "Looks like you got distracted. We can continue later."
+            ]
+          },
+          {
+            "action": "timeout"
+          }
+        ]
+      }
+    ],
+    "id": "3df969c0-ef28-49d1-9cfd-fe87d6c0dce2",
+    "modified": "2020-07-21T07:53:39.313Z",
+    "name": "Other_FAQ_2",
+    "deleted": false,
+    "already_exist": false
+  },
+  {
+    "command": "No_match",
+    "botId": 1,
+    "description": "When the bot does not recognize users' question",
+    "triggers": [
+      {
+        "type": "string",
+        "pattern": "No_match"
+      }
+    ],
+    "variables": [
+      {
+        "name": "question_1",
+        "type": "string"
+      },
+      {
+        "name": "question_2",
+        "type": "string"
+      },
+      {
+        "name": "question_3",
+        "type": "string"
+      }
+    ],
+    "script": [
+      {
+        "topic": "default",
+        "script": [
+          {
+            "text": [
+              "Sorry for the confusion. Could you please rephrase the question here?"
+            ]
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "on_timeout",
+        "script": [
+          {
+            "text": [
+              "Looks like you got distracted. We can continue later."
+            ]
+          },
+          {
+            "action": "timeout"
+          }
+        ]
+      }
+    ],
+    "id": "e3bd2792-29ff-4452-8f95-e84815412b3d",
+    "modified": "2020-07-21T07:53:39.314Z",
+    "name": "No_match",
+    "deleted": false,
+    "already_exist": false
+  },
+  {
+    "command": "Other_FAQ_3",
+    "botId": 1,
+    "description": "Question about medical safety",
+    "triggers": [
+      {
+        "pattern": "/info.+safe./i",
+        "type": "regexp",
+        "id": 123
+      },
+      {
+        "pattern": "/data.+safety./i",
+        "type": "regexp",
+        "id": 126
+      },
+      {
+        "pattern": "/data.+safe./i",
+        "type": "regexp",
+        "id": 171
+      }
+    ],
+    "variables": [
+      {
+        "name": "question_1",
+        "type": "string"
+      },
+      {
+        "name": "question_2",
+        "type": "string"
+      },
+      {
+        "name": "question_3",
+        "type": "string"
+      }
+    ],
+    "script": [
+      {
+        "topic": "default",
+        "script": [
+          {
+            "text": [
+              "Your data is safe with us. Your data is host on AWS and with enhanced HIPAA security in Deep in AWS hosted environment. We apply the latest HIPAA security technologies currently available."
+            ],
+            "quick_replies": [
+              {
+                "title": "This is not what I asked",
+                "payload": "confusion",
+                "content_type": "text"
+              }
+            ],
+            "collect": {
+              "key": "question_1",
+              "options": [
+                {
+                  "default": true,
+                  "pattern": "default",
+                  "action": "next"
+                },
+                {
+                  "pattern": "confusion",
+                  "type": "string",
+                  "action": "execute_script",
+                  "execute": {
+                    "script": "No_match",
+                    "thread": "default"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "text": [
+              "I hope that was helpful. Any other question?"
+            ],
+            "collect": null
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "on_timeout",
+        "script": [
+          {
+            "text": [
+              "Looks like you got distracted. We can continue later."
+            ]
+          },
+          {
+            "action": "timeout"
+          }
+        ]
+      }
+    ],
+    "id": "69c90c2d-3c23-4e49-9f67-0a671f7d9d15",
+    "modified": "2020-07-21T07:53:39.316Z",
+    "name": "Other_FAQ_3",
+    "deleted": false,
+    "already_exist": false
+  },
+  {
+    "command": "Other_FAQ_4",
+    "botId": 1,
+    "description": "Create account for family",
+    "triggers": [
+      {
+        "pattern": "/account+with+husband./i",
+        "type": "regexp",
+        "id": 400
+      },
+      {
+        "pattern": "/family.+account/i",
+        "type": "regexp",
+        "id": 380
+      },
+      {
+        "pattern": "/account.+family./i",
+        "type": "regexp",
+        "id": 263
+      },
+      {
+        "pattern": "/create.+family.+account/i",
+        "type": "regexp",
+        "id": 87
+      }
+    ],
+    "variables": [
+      {
+        "name": "question_1",
+        "type": "string"
+      },
+      {
+        "name": "question_2",
+        "type": "string"
+      },
+      {
+        "name": "question_3",
+        "type": "string"
+      }
+    ],
+    "script": [
+      {
+        "topic": "default",
+        "script": [
+          {
+            "text": [
+              "Family account is currently in development and will be available soon."
+            ],
+            "quick_replies": [
+              {
+                "title": "This is not what I asked for",
+                "payload": "confusion",
+                "content_type": "text"
+              }
+            ],
+            "collect": {
+              "key": "question_1",
+              "options": [
+                {
+                  "default": true,
+                  "pattern": "default",
+                  "action": "execute_script",
+                  "execute": {
+                    "script": "No_match",
+                    "thread": "default"
+                  }
+                },
+                {
+                  "pattern": "confusion",
+                  "type": "string",
+                  "action": "next"
+                }
+              ]
+            }
+          },
+          {
+            "text": [
+              "Anything else I could help you with?"
+            ],
+            "collect": null
+          },
+          {
+            "action": "complete"
+          }
+        ]
+      },
+      {
+        "topic": "on_timeout",
+        "script": [
+          {
+            "text": [
+              "Looks like you got distracted. We can continue later."
+            ]
+          },
+          {
+            "action": "timeout"
+          }
+        ]
+      }
+    ],
+    "id": "f09c298b-343b-4b2e-9039-e6984c70d20e",
+    "modified": "2020-07-21T07:53:39.317Z",
+    "name": "Other_FAQ_4",
+    "deleted": false,
+    "already_exist": false
   }
 ]
