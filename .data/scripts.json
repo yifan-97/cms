@@ -424,34 +424,34 @@
     "description": "data transfer",
     "triggers": [
       {
-        "pattern": "/record.+transfer./i",
+        "pattern": "transfer.+record.",
         "type": "regexp",
-        "id": 173
+        "id": 405
       },
       {
-        "pattern": "/transfer.+clinic./i",
+        "pattern": "info.+transfer.",
         "type": "regexp",
-        "id": 381
+        "id": 89
       },
       {
-        "pattern": "/transfer.+data./i",
+        "pattern": "transfer.+info.",
         "type": "regexp",
-        "id": 431
+        "id": 278
       },
       {
-        "pattern": "/transfer.+info./i",
+        "pattern": "transfer.+data.",
         "type": "regexp",
-        "id": 170
+        "id": 26
       },
       {
-        "pattern": "/info.+transfer./i",
-        "type": "string",
-        "id": 437
+        "pattern": "transfer.+clinic.",
+        "type": "regexp",
+        "id": 404
       },
       {
-        "pattern": "/transfer.+record./i",
-        "type": "string",
-        "id": 346
+        "pattern": "record.+transfer.",
+        "type": "regexp",
+        "id": 35
       }
     ],
     "variables": [
@@ -540,7 +540,7 @@
       }
     ],
     "id": "0fafa2bf-e0c0-4ede-afa7-1bb6d61b3ca2",
-    "modified": "2020-07-21T07:53:39.310Z",
+    "modified": "2020-07-21T08:04:02.506Z",
     "name": "Other FAQ_1",
     "tags": [
       "cat_0"
