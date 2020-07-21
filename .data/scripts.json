@@ -424,44 +424,34 @@
     "description": "data transfer",
     "triggers": [
       {
+        "pattern": "info.* transfer.*",
+        "type": "regexp",
+        "id": 32
+      },
+      {
+        "pattern": "transfer.* info.*",
+        "type": "regexp",
+        "id": 295
+      },
+      {
+        "pattern": "transfer.* data.*",
+        "type": "regexp",
+        "id": 52
+      },
+      {
+        "pattern": "transfer.* clinic.*",
+        "type": "regexp",
+        "id": 134
+      },
+      {
+        "pattern": "record.* transfer.*",
+        "type": "regexp",
+        "id": 75
+      },
+      {
         "pattern": "transfer.* record.*",
         "type": "string",
         "id": 263
-      },
-      {
-        "pattern": "(\\btransfer.\\b)(\\brecord.\\b)",
-        "type": "regexp",
-        "id": 288
-      },
-      {
-        "pattern": "transfer.+record.",
-        "type": "regexp",
-        "id": 405
-      },
-      {
-        "pattern": "info.+transfer.",
-        "type": "regexp",
-        "id": 89
-      },
-      {
-        "pattern": "transfer.+info.",
-        "type": "regexp",
-        "id": 278
-      },
-      {
-        "pattern": "transfer.+data.",
-        "type": "regexp",
-        "id": 26
-      },
-      {
-        "pattern": "transfer.+clinic.",
-        "type": "regexp",
-        "id": 404
-      },
-      {
-        "pattern": "record.+transfer.",
-        "type": "regexp",
-        "id": 35
       }
     ],
     "variables": [
@@ -550,7 +540,7 @@
       }
     ],
     "id": "0fafa2bf-e0c0-4ede-afa7-1bb6d61b3ca2",
-    "modified": "2020-07-21T08:26:46.700Z",
+    "modified": "2020-07-21T08:35:09.139Z",
     "name": "Other FAQ_1",
     "tags": [
       "cat_0"
@@ -564,34 +554,39 @@
     "description": "See the clinics working with MDout",
     "triggers": [
       {
-        "pattern": "/is.+my.+doctor./i",
+        "pattern": "what.* clinic.*",
         "type": "string",
-        "id": 374
+        "id": 155
       },
       {
-        "pattern": "/is.+my.+provider./i",
+        "pattern": "who.* partner.* with",
         "type": "string",
-        "id": 441
+        "id": 325
       },
       {
-        "pattern": "/which.+work.+with./i",
-        "type": "regexp",
-        "id": 443
+        "pattern": "who.* work.* with.*",
+        "type": "string",
+        "id": 113
       },
       {
-        "pattern": "/who.+work.+with./i",
-        "type": "regexp",
-        "id": 290
+        "pattern": "what.* work.* with.*",
+        "type": "string",
+        "id": 82
       },
       {
-        "pattern": "/who.+partner.+with./i",
-        "type": "regexp",
-        "id": 402
+        "pattern": "is.* my.* provider.* MDout.*",
+        "type": "string",
+        "id": 196
       },
       {
-        "pattern": "/what.+clinic./i",
-        "type": "regexp",
-        "id": 178
+        "pattern": "is.* my.* provider.* with.*",
+        "type": "string",
+        "id": 216
+      },
+      {
+        "pattern": "is.* my.* doctor.* with.*",
+        "type": "string",
+        "id": 21
       }
     ],
     "variables": [
@@ -684,7 +679,7 @@
       }
     ],
     "id": "3df969c0-ef28-49d1-9cfd-fe87d6c0dce2",
-    "modified": "2020-07-21T07:53:39.313Z",
+    "modified": "2020-07-21T08:39:11.681Z",
     "name": "Other_FAQ_2",
     "deleted": false,
     "already_exist": false
@@ -753,19 +748,19 @@
     "description": "Question about medical safety",
     "triggers": [
       {
-        "pattern": "/info.+safe./i",
-        "type": "regexp",
-        "id": 123
+        "pattern": "data.* safe.*",
+        "type": "string",
+        "id": 468
       },
       {
-        "pattern": "/data.+safety./i",
-        "type": "regexp",
-        "id": 126
+        "pattern": "data.* safety.*",
+        "type": "string",
+        "id": 294
       },
       {
-        "pattern": "/data.+safe./i",
-        "type": "regexp",
-        "id": 171
+        "pattern": "info.* safe.*",
+        "type": "string",
+        "id": 86
       }
     ],
     "variables": [
@@ -843,7 +838,7 @@
       }
     ],
     "id": "69c90c2d-3c23-4e49-9f67-0a671f7d9d15",
-    "modified": "2020-07-21T07:53:39.316Z",
+    "modified": "2020-07-21T08:40:08.572Z",
     "name": "Other_FAQ_3",
     "deleted": false,
     "already_exist": false
@@ -854,24 +849,24 @@
     "description": "Create account for family",
     "triggers": [
       {
-        "pattern": "/account+with+husband./i",
-        "type": "regexp",
-        "id": 400
+        "pattern": "create.* family.* account",
+        "type": "string",
+        "id": 13
       },
       {
-        "pattern": "/family.+account/i",
-        "type": "regexp",
-        "id": 380
+        "pattern": "account.* family.*",
+        "type": "string",
+        "id": 160
       },
       {
-        "pattern": "/account.+family./i",
-        "type": "regexp",
-        "id": 263
+        "pattern": "family account.*",
+        "type": "string",
+        "id": 382
       },
       {
-        "pattern": "/create.+family.+account/i",
-        "type": "regexp",
-        "id": 87
+        "pattern": "account.* with.* husband.*",
+        "type": "string",
+        "id": 285
       }
     ],
     "variables": [
@@ -949,7 +944,7 @@
       }
     ],
     "id": "f09c298b-343b-4b2e-9039-e6984c70d20e",
-    "modified": "2020-07-21T07:53:39.317Z",
+    "modified": "2020-07-21T08:41:54.877Z",
     "name": "Other_FAQ_4",
     "deleted": false,
     "already_exist": false
